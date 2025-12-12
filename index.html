@@ -39,11 +39,7 @@
       </div>
 
       <figure class="hero">
-        <img
-          src="assets/xmascard2025.png"
-          alt="Holiday card collage"
-          loading="eager"
-        />
+        <img src="assets/xmascard2025.png" alt="Holiday card collage" loading="eager" />
         <figcaption>
           P.S. If this image loads, congrats — you’re already beating a certain shipping situation.
         </figcaption>
@@ -76,10 +72,6 @@
           can live safely, far from sorting machines, shipping labels, and the call center soundtrack.
         </p>
 
-        <p class="muted">
-          Coming soon: the full poem, the roast, and the annual family update (with 30% more sparkle).
-        </p>
-
         <div class="note">
           <strong>Quick edit later:</strong> You’ll paste the final letter text right here (we can format it
           like a storybook scroll).
@@ -90,29 +82,11 @@
     <section id="gallery" class="card">
       <div class="card-title">
         <h2>📸 Gallery</h2>
-        <p class="muted">Click a photo to view it full size (and to prove the internet can deliver things).</p>
+        <p class="muted">Click a photo to view it full size.</p>
       </div>
 
       <div class="gallery" id="galleryGrid" aria-label="Photo gallery"></div>
     </section>
-
-    <!-- Lightbox -->
-    <div class="lightbox" id="lightbox" hidden>
-      <button class="lb-backdrop" type="button" data-close aria-label="Close"></button>
-
-      <div class="lb-panel" role="dialog" aria-modal="true" aria-label="Photo viewer">
-        <button class="lb-close" type="button" data-close aria-label="Close">✕</button>
-
-        <button class="lb-nav lb-prev" type="button" data-prev aria-label="Previous photo">‹</button>
-
-        <figure class="lb-figure">
-          <img id="lbImage" alt="" />
-          <figcaption id="lbCaption"></figcaption>
-        </figure>
-
-        <button class="lb-nav lb-next" type="button" data-next aria-label="Next photo">›</button>
-      </div>
-    </div>
 
     <section id="interstate" class="card">
       <div class="card-title">
@@ -147,19 +121,32 @@
             <div><strong>Bismarck</strong><br><span class="muted">Last known civilization</span></div>
             <div class="right"><strong>Jamestown</strong><br><span class="muted">Land of “maybe?”</span></div>
           </div>
-          <p class="muted small">
-            (We can embed a real map later — this is the “construction paper” version.)
-          </p>
+          <p class="muted small">(We can embed a real map later — this is the “construction paper” version.)</p>
         </div>
       </div>
     </section>
   </main>
 
   <footer id="footer" class="wrap footer">
-    <p>
-      © <span data-year></span> The Kringlies • Built with cheer • Hosted somewhere far from conveyor belts
-    </p>
+    <p>© <span data-year></span> The Kringlies • Built with cheer • Hosted somewhere far from conveyor belts</p>
   </footer>
+
+  <!-- Lightbox (IMPORTANT: keep this as a direct child of body) -->
+  <div class="lightbox" id="lightbox" hidden>
+    <button class="lb-backdrop" type="button" data-close aria-label="Close"></button>
+
+    <div class="lb-panel" role="dialog" aria-modal="true" aria-label="Photo viewer">
+      <button class="lb-close" type="button" data-close aria-label="Close">✕</button>
+      <button class="lb-nav lb-prev" type="button" data-prev aria-label="Previous photo">‹</button>
+
+      <figure class="lb-figure">
+        <img id="lbImage" alt="" />
+        <figcaption id="lbCaption"></figcaption>
+      </figure>
+
+      <button class="lb-nav lb-next" type="button" data-next aria-label="Next photo">›</button>
+    </div>
+  </div>
 
   <script src="main.js"></script>
 </body>

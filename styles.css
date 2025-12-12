@@ -1,7 +1,6 @@
 :root{
   --bg0:#071a12;
   --bg1:#0b2a1a;
-  --card:#0f3523;
   --paper:#fff7ea;
   --ink:#122016;
 
@@ -49,8 +48,7 @@ body{
   z-index:2;
   padding:28px 0 16px;
   border-bottom: 1px solid rgba(255,255,255,.08);
-  background:
-    linear-gradient(180deg, rgba(255,255,255,.04), transparent 60%);
+  background: linear-gradient(180deg, rgba(255,255,255,.04), transparent 60%);
 }
 
 .header-inner{
@@ -59,7 +57,6 @@ body{
   gap:22px;
   align-items:start;
 }
-
 @media (max-width: 900px){
   .header-inner{ grid-template-columns: 1fr; }
 }
@@ -94,7 +91,6 @@ h1{
   font-size: clamp(28px, 4vw, 44px);
   line-height:1.05;
 }
-
 .subhead{
   margin:0 0 14px;
   color: var(--muted);
@@ -176,13 +172,9 @@ h1{
   z-index:2;
 }
 
-.card-title{
-  padding: 18px 18px 0;
-}
-.card-title h2{
-  margin:0;
-  font-size: 22px;
-}
+.card-title{ padding: 18px 18px 0; }
+.card-title h2{ margin:0; font-size: 22px; }
+
 .muted{ color: var(--muted); }
 .small{ font-size: 13px; }
 
@@ -208,34 +200,10 @@ h1{
 
 .note{
   margin-top: 12px;
-  padding: 12px 12px;
+  padding: 12px;
   border-left: 4px solid var(--green);
   background: rgba(42,157,91,.12);
   border-radius: 12px;
-}
-
-.grid{
-  padding: 16px;
-  display:grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 12px;
-}
-@media (max-width: 900px){
-  .grid{ grid-template-columns: repeat(2, 1fr); }
-}
-@media (max-width: 560px){
-  .grid{ grid-template-columns: 1fr; }
-}
-
-.ph{
-  height: 140px;
-  border-radius: 16px;
-  border: 1px dashed rgba(255,255,255,.25);
-  background: rgba(255,255,255,.06);
-  display:grid;
-  place-items:center;
-  color: rgba(255,255,255,.70);
-  font-weight:600;
 }
 
 .two-col{
@@ -286,7 +254,7 @@ h1{
 }
 .route-labels .right{ text-align:right; }
 
-/* Gallery */
+/* ===== Gallery ===== */
 .gallery{
   padding: 16px;
   display:grid;
@@ -309,8 +277,8 @@ h1{
   width:100%;
   height:auto;
   display:block;
-  aspect-ratio: 1 / 1;   /* key: makes every thumbnail same shape */
-  object-fit: cover;     /* key: crops nicely regardless of orientation */
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
 }
 
 .thumb figcaption{
@@ -321,7 +289,9 @@ h1{
   border-top: 1px solid rgba(255,255,255,.08);
 }
 
-/* Lightbox */
+/* ===== Lightbox ===== */
+.lightbox[hidden]{ display:none !important; }
+
 .lightbox{
   position: fixed;
   inset: 0;
@@ -333,8 +303,9 @@ h1{
 .lb-backdrop{
   position:absolute;
   inset:0;
-  background: rgba(0,0,0,.72);
+  background: rgba(0,0,0,.74);
   border:0;
+  padding:0;
 }
 
 .lb-panel{
@@ -343,7 +314,7 @@ h1{
   max-height: calc(100vh - 28px);
   border-radius: 18px;
   border: 1px solid rgba(255,255,255,.14);
-  background: rgba(15, 25, 20, .92);
+  background: rgba(15, 25, 20, .94);
   box-shadow: 0 26px 70px rgba(0,0,0,.55);
   overflow:hidden;
   display:grid;
@@ -362,10 +333,11 @@ h1{
 #lbImage{
   width: 100%;
   height: auto;
-  max-height: calc(100vh - 160px);
-  object-fit: contain; /* key: full image, no cropping */
+  max-height: calc(100vh - 170px);
+  object-fit: contain;
   border-radius: 14px;
   background: rgba(255,255,255,.04);
+  display:block;
 }
 
 #lbCaption{
