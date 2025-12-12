@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#0b2a1a" />
+
+  <title>Kringlie Xmas 2025</title>
+  <meta name="description" content="A Christmas letter, delivered digitally… because the physical one went on an interstate adventure." />
+
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+  <!-- Snow layer -->
+  <canvas id="snow" aria-hidden="true"></canvas>
+
+  <header class="site-header">
+    <div class="lights" aria-hidden="true"></div>
+
+    <div class="wrap header-inner">
+      <div class="brand">
+        <span class="badge">🎄 Kringlie Xmas <span data-year></span></span>
+        <h1>Happy Holidays (and Merry “Where’d-Our-Cards-Go?”)</h1>
+        <p class="subhead">
+          A festive letter, a few photos, and a tiny roadside mystery somewhere between
+          <strong>Bismarck</strong> and <strong>Jamestown</strong>.
+        </p>
+
+        <div class="cta-row">
+          <a class="btn primary" href="#letter">Read the Letter</a>
+          <button class="btn" id="toggleSnow" type="button" aria-pressed="true" title="Toggle snow">
+            ❄️ Snow: On
+          </button>
+          <button class="btn" id="copyLink" type="button" title="Copy link">
+            🔗 Copy Link
+          </button>
+        </div>
+      </div>
+
+      <figure class="hero">
+        <img
+          src="assets/card.jpg"
+          alt="Holiday card collage"
+          loading="eager"
+        />
+        <figcaption>
+          P.S. If this image loads, congrats — you’re already beating a certain shipping situation.
+        </figcaption>
+      </figure>
+    </div>
+
+    <nav class="wrap nav" aria-label="Page">
+      <a href="#letter">Letter</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#interstate">Interstate Mystery</a>
+      <a href="#footer">Footer</a>
+    </nav>
+  </header>
+
+  <main class="wrap">
+    <section id="letter" class="card">
+      <div class="card-title">
+        <h2>🎅 The Letter</h2>
+        <p class="muted">We’ll swap this placeholder for your “’Twas the Night…” masterpiece.</p>
+      </div>
+
+      <div class="paper">
+        <p class="dropcap">
+          ’Twas the season for greetings, for joy and good cheer… and then our Christmas cards
+          decided to become a multi-stop tour of North Dakota.
+        </p>
+
+        <p>
+          This page is the digital backup plan — a cozy little cabin on the internet where your letter
+          can live safely, far from sorting machines, shipping labels, and the call center soundtrack.
+        </p>
+
+        <p class="muted">
+          Coming soon: the full poem, the roast, and the annual family update (with 30% more sparkle).
+        </p>
+
+        <div class="note">
+          <strong>Quick edit later:</strong> You’ll paste the final letter text right here (we can format it
+          like a storybook scroll).
+        </div>
+      </div>
+    </section>
+
+    <section id="gallery" class="card">
+      <div class="card-title">
+        <h2>📸 Gallery</h2>
+        <p class="muted">Drop a few favorites into <code>assets/</code> and we’ll wire up a proper grid/lightbox.</p>
+      </div>
+
+      <div class="grid">
+        <div class="ph">Add photo</div>
+        <div class="ph">Add photo</div>
+        <div class="ph">Add photo</div>
+        <div class="ph">Add photo</div>
+        <div class="ph">Add photo</div>
+        <div class="ph">Add photo</div>
+      </div>
+    </section>
+
+    <section id="interstate" class="card">
+      <div class="card-title">
+        <h2>📦 The Great Interstate Scatter</h2>
+        <p class="muted">A memorial for our lost shipment — now living its best life on I-94 (allegedly).</p>
+      </div>
+
+      <div class="two-col">
+        <div class="paper">
+          <h3>Known facts</h3>
+          <ul>
+            <li>Cards existed. Briefly.</li>
+            <li>Tracking indicated “scattered on the interstate” energy.</li>
+            <li>Somewhere between <strong>Bismarck</strong> and <strong>Jamestown</strong>, ND.</li>
+          </ul>
+
+          <h3>Working theories</h3>
+          <ul>
+            <li>A rogue gust of holiday spirit.</li>
+            <li>A sorting-machine uprising.</li>
+            <li>One extremely festive raccoon with a side hustle.</li>
+          </ul>
+        </div>
+
+        <div class="mapbox" role="img" aria-label="Decorative route line between Bismarck and Jamestown">
+          <div class="route">
+            <span class="dot"></span>
+            <span class="line"></span>
+            <span class="dot"></span>
+          </div>
+          <div class="route-labels">
+            <div><strong>Bismarck</strong><br><span class="muted">Last known civilization</span></div>
+            <div class="right"><strong>Jamestown</strong><br><span class="muted">Land of “maybe?”</span></div>
+          </div>
+          <p class="muted small">
+            (We can embed a real map later — this is the “construction paper” version.)
+          </p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer id="footer" class="wrap footer">
+    <p>
+      © <span data-year></span> The Kringlies • Built with cheer • Hosted somewhere far from conveyor belts
+    </p>
+  </footer>
+
+  <script src="main.js"></script>
+</body>
+</html>
