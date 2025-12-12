@@ -90,18 +90,29 @@
     <section id="gallery" class="card">
       <div class="card-title">
         <h2>📸 Gallery</h2>
-        <p class="muted">Drop a few favorites into <code>assets/</code> and we’ll wire up a proper grid/lightbox.</p>
+        <p class="muted">Click a photo to view it full size (and to prove the internet can deliver things).</p>
       </div>
 
-      <div class="grid">
-        <div class="ph">Add photo</div>
-        <div class="ph">Add photo</div>
-        <div class="ph">Add photo</div>
-        <div class="ph">Add photo</div>
-        <div class="ph">Add photo</div>
-        <div class="ph">Add photo</div>
-      </div>
+      <div class="gallery" id="galleryGrid" aria-label="Photo gallery"></div>
     </section>
+
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox" hidden>
+      <button class="lb-backdrop" type="button" data-close aria-label="Close"></button>
+
+      <div class="lb-panel" role="dialog" aria-modal="true" aria-label="Photo viewer">
+        <button class="lb-close" type="button" data-close aria-label="Close">✕</button>
+
+        <button class="lb-nav lb-prev" type="button" data-prev aria-label="Previous photo">‹</button>
+
+        <figure class="lb-figure">
+          <img id="lbImage" alt="" />
+          <figcaption id="lbCaption"></figcaption>
+        </figure>
+
+        <button class="lb-nav lb-next" type="button" data-next aria-label="Next photo">›</button>
+      </div>
+    </div>
 
     <section id="interstate" class="card">
       <div class="card-title">

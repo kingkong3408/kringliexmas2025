@@ -286,6 +286,125 @@ h1{
 }
 .route-labels .right{ text-align:right; }
 
+/* Gallery */
+.gallery{
+  padding: 16px;
+  display:grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 12px;
+}
+
+.thumb{
+  margin:0;
+  border-radius: 16px;
+  overflow:hidden;
+  border: 1px solid rgba(255,255,255,.10);
+  background: rgba(255,255,255,.06);
+  box-shadow: 0 14px 34px rgba(0,0,0,.25);
+  cursor:pointer;
+  display:grid;
+}
+
+.thumb img{
+  width:100%;
+  height:auto;
+  display:block;
+  aspect-ratio: 1 / 1;   /* key: makes every thumbnail same shape */
+  object-fit: cover;     /* key: crops nicely regardless of orientation */
+}
+
+.thumb figcaption{
+  padding: 10px 12px 12px;
+  font-size: 13px;
+  color: rgba(255,255,255,.80);
+  line-height: 1.25;
+  border-top: 1px solid rgba(255,255,255,.08);
+}
+
+/* Lightbox */
+.lightbox{
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display:grid;
+  place-items:center;
+}
+
+.lb-backdrop{
+  position:absolute;
+  inset:0;
+  background: rgba(0,0,0,.72);
+  border:0;
+}
+
+.lb-panel{
+  position:relative;
+  width: min(1100px, calc(100% - 28px));
+  max-height: calc(100vh - 28px);
+  border-radius: 18px;
+  border: 1px solid rgba(255,255,255,.14);
+  background: rgba(15, 25, 20, .92);
+  box-shadow: 0 26px 70px rgba(0,0,0,.55);
+  overflow:hidden;
+  display:grid;
+  grid-template-columns: 54px 1fr 54px;
+  align-items: center;
+}
+
+.lb-figure{
+  margin:0;
+  padding: 14px 14px 10px;
+  display:grid;
+  gap: 10px;
+  justify-items:center;
+}
+
+#lbImage{
+  width: 100%;
+  height: auto;
+  max-height: calc(100vh - 160px);
+  object-fit: contain; /* key: full image, no cropping */
+  border-radius: 14px;
+  background: rgba(255,255,255,.04);
+}
+
+#lbCaption{
+  color: rgba(255,255,255,.85);
+  font-size: 14px;
+  text-align:center;
+  padding: 0 10px 10px;
+}
+
+.lb-close{
+  position:absolute;
+  top: 10px;
+  right: 10px;
+  width: 40px;
+  height: 40px;
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,.18);
+  background: rgba(255,255,255,.10);
+  color: #fff;
+  cursor:pointer;
+}
+
+.lb-nav{
+  height: 100%;
+  border:0;
+  background: transparent;
+  color: rgba(255,255,255,.85);
+  font-size: 46px;
+  cursor:pointer;
+  display:grid;
+  place-items:center;
+}
+.lb-nav:hover{ background: rgba(255,255,255,.06); }
+
+@media (max-width: 720px){
+  .lb-panel{ grid-template-columns: 46px 1fr 46px; }
+  .lb-nav{ font-size: 40px; }
+}
+
 .footer{
   padding: 30px 0 50px;
   color: var(--muted);
