@@ -227,7 +227,7 @@ h1{
 }
 
 .letter-scroll{
-  padding: 52px 18px 18px;  /* extra top padding so hint never overlaps text */
+  padding: 52px 18px 78px;  /* extra top padding so hint never overlaps text */
   max-height: 520px;
   overflow-y: auto;
   -webkit-overflow-scrolling: touch;
