@@ -29,11 +29,11 @@
     { src: "assets/gallery/pic07_familyfenway.jpg", caption: "Family — Fenway", alt: "Family at Fenway Park" },
     { src: "assets/gallery/pic08_familyfenway.jpg", caption: "Fenway, part 2", alt: "Family at Fenway Park (second photo)" },
     { src: "assets/gallery/pic09_halekaifenway.jpg", caption: "Hale & Kai — Fenway", alt: "Hale and Kai at Fenway Park" },
-    { src: "assets/gallery/pic10_chief.jpg", caption: "Chief (again, because obviously)", alt: "Chief again" },
     { src: "assets/gallery/pic11_floridacobbertennis.jpg", caption: "Florida Cobber tennis (sun edition)", alt: "Tennis in Florida" },
     { src: "assets/gallery/pic12_halehunting.jpg", caption: "Hale: hunting mode", alt: "Hale hunting" },
     { src: "assets/gallery/pic13_halenewhome.jpg", caption: "Hale’s new home base", alt: "Hale at new home" },
     { src: "assets/gallery/pic14_kaicobbertennisgameday.jpg", caption: "Kai Cobber Tennis — game day", alt: "Kai on tennis game day" },
+    { src: "assets/gallery/pic10_chief.jpg", caption: "Chief (again, because obviously)", alt: "Chief again" },
   ];
 
   const grid = document.getElementById("galleryGrid");
