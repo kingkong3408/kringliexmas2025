@@ -198,20 +198,45 @@ h1{
   color: var(--red);
 }
 
+.note{
+  margin-top: 12px;
+  padding: 12px;
+  border-left: 4px solid var(--green);
+  background: rgba(42,157,91,.12);
+  border-radius: 12px;
+}
+
+/* ===== Letter scroll box + polish ===== */
 .letter-paper{
-  padding: 0; /* let the scroll box handle padding */
+  padding: 0;            /* scroll box handles padding */
+  position: relative;    /* needed for fade + hint */
+}
+
+/* Scroll hint pill (optional element in HTML: <div class="scroll-hint">Scroll ↓</div>) */
+.scroll-hint{
+  position:absolute;
+  top:14px;
+  right:18px;
+  font-size:12px;
+  color: rgba(18,32,22,.55);
+  background: rgba(255,255,255,.55);
+  border: 1px solid rgba(0,0,0,.08);
+  padding: 6px 10px;
+  border-radius: 999px;
+  backdrop-filter: blur(6px);
 }
 
 .letter-scroll{
-  padding: 18px;
+  padding: 52px 18px 18px;  /* extra top padding so hint never overlaps text */
   max-height: 520px;
   overflow-y: auto;
   -webkit-overflow-scrolling: touch;
+  line-height: 1.75;        /* “poem breathing room” */
 }
 
 .stanza{
-  margin: 0 0 14px;
-  line-height: 1.6;
+  margin: 0 0 18px;
+  line-height: inherit;
 }
 
 .stanza.signature{
@@ -219,12 +244,15 @@ h1{
   font-weight: 700;
 }
 
-.note{
-  margin-top: 12px;
-  padding: 12px;
-  border-left: 4px solid var(--green);
-  background: rgba(42,157,91,.12);
-  border-radius: 12px;
+/* Bottom fade so it looks scrollable */
+.letter-paper::after{
+  content:"";
+  position:absolute;
+  left:16px; right:16px; bottom:16px;
+  height:60px;
+  pointer-events:none;
+  background: linear-gradient(to bottom, rgba(255,247,234,0), rgba(255,247,234,1));
+  border-radius: 0 0 14px 14px;
 }
 
 .two-col{
