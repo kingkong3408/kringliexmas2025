@@ -20,12 +20,12 @@
 
   // ===== Gallery + Lightbox =====
   const galleryItems = [
+    { src: "assets/gallery/pic06_familyboston.jpg", caption: "Family — Boston", alt: "Family photo in Boston" },
     { src: "assets/gallery/pic01_kaitennis.jpg", caption: "Kai - Cobber Tennis", alt: "Kai playing Cobber tennis" },
     { src: "assets/gallery/pic02_chief.jpg", caption: "Chief", alt: "Chief" },
     { src: "assets/gallery/pic03_halegun.jpg", caption: "Hale", alt: "Hale" },
     { src: "assets/gallery/pic04_susanerikhof.jpg", caption: "Susan & Erik - ND Tennis HOF", alt: "Susan and Erik smiling" },
     { src: "assets/gallery/pic05_catsfranktessie.jpg", caption: "Frank & Tessie", alt: "Two cats lounging" },
-    { src: "assets/gallery/pic06_familyboston.jpg", caption: "Family — Boston", alt: "Family photo in Boston" },
     { src: "assets/gallery/pic07_familyfenway.jpg", caption: "Family — Fenway", alt: "Family at Fenway Park" },
     { src: "assets/gallery/pic08_familyfenway.jpg", caption: "Fenway - part 2", alt: "Family at Fenway Park (second photo)" },
     { src: "assets/gallery/pic09_halekaifenway.jpg", caption: "Hale & Kai — Fenway on the Green Monster", alt: "Hale and Kai at Fenway Park" },
