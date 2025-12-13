@@ -43,6 +43,7 @@ body{
   opacity:.8;
 }
 
+/* ===== Header ===== */
 .site-header{
   position:relative;
   z-index:2;
@@ -91,6 +92,7 @@ h1{
   font-size: clamp(28px, 4vw, 44px);
   line-height:1.05;
 }
+
 .subhead{
   margin:0 0 14px;
   color: var(--muted);
@@ -161,6 +163,7 @@ h1{
   color: var(--text);
 }
 
+/* ===== Cards / Paper ===== */
 .card{
   margin: 18px 0;
   background: rgba(255,255,255,.05);
@@ -188,6 +191,7 @@ h1{
   border: 1px solid rgba(0,0,0,.08);
 }
 
+/* Dropcap (the cool red T) */
 .dropcap::first-letter{
   float:left;
   font-family: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
@@ -208,11 +212,11 @@ h1{
 
 /* ===== Letter scroll box + polish ===== */
 .letter-paper{
-  padding: 0;            /* scroll box handles padding */
-  position: relative;    /* needed for fade + hint */
+  padding: 0;
+  position: relative;
 }
 
-/* Scroll hint pill (optional element in HTML: <div class="scroll-hint">Scroll ↓</div>) */
+/* Scroll hint pill (optional element: <div class="scroll-hint">Scroll ↓</div>) */
 .scroll-hint{
   position:absolute;
   top:14px;
@@ -226,12 +230,14 @@ h1{
   backdrop-filter: blur(6px);
 }
 
+/* Extra top padding so the hint never overlaps the poem.
+   Extra bottom padding so the fade doesn't look like a "gap". */
 .letter-scroll{
-  padding: 52px 18px 18px;  /* extra top padding so hint never overlaps text */
+  padding: 52px 18px 78px;
   max-height: 520px;
   overflow-y: auto;
   -webkit-overflow-scrolling: touch;
-  line-height: 1.75;        /* “poem breathing room” */
+  line-height: 1.75;
 }
 
 .stanza{
@@ -244,17 +250,18 @@ h1{
   font-weight: 700;
 }
 
-/* Bottom fade so it looks scrollable */
+/* Bottom fade so it looks scrollable (smaller height to avoid "too much blank") */
 .letter-paper::after{
   content:"";
   position:absolute;
   left:16px; right:16px; bottom:16px;
-  height:34px;
+  height:44px;
   pointer-events:none;
   background: linear-gradient(to bottom, rgba(255,247,234,0), rgba(255,247,234,1));
   border-radius: 0 0 14px 14px;
 }
 
+/* ===== Interstate section layout ===== */
 .two-col{
   display:grid;
   grid-template-columns: 1fr 1fr;
@@ -265,6 +272,7 @@ h1{
   .two-col{ grid-template-columns: 1fr; }
 }
 
+/* Container for the map area */
 .mapbox{
   margin-top: 16px;
   border-radius: 16px;
@@ -275,6 +283,7 @@ h1{
   padding: 18px;
 }
 
+/* Leaflet map itself (must have a height) */
 #i94map{
   width: 100%;
   height: 380px;
@@ -285,34 +294,6 @@ h1{
 @media (max-width: 720px){
   #i94map{ height: 320px; }
 }
-
-.route{
-  display:flex;
-  align-items:center;
-  gap: 10px;
-  padding: 10px 0 12px;
-}
-.dot{
-  width: 14px;
-  height: 14px;
-  border-radius: 999px;
-  background: var(--gold);
-  box-shadow: 0 0 0 6px rgba(233,196,106,.18);
-}
-.line{
-  flex: 1;
-  height: 6px;
-  border-radius: 999px;
-  background: linear-gradient(90deg, rgba(233,196,106,.65), rgba(200,29,37,.55), rgba(42,157,91,.55));
-  opacity:.95;
-}
-
-.route-labels{
-  display:flex;
-  justify-content:space-between;
-  gap: 14px;
-}
-.route-labels .right{ text-align:right; }
 
 /* ===== Gallery ===== */
 .gallery{

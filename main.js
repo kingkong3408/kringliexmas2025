@@ -18,22 +18,22 @@
     });
   }
 
-  // ===== Gallery + Lightbox =====
+  // ===== Gallery + Lightbox (thumbs in grid, full in lightbox) =====
   const galleryItems = [
-    { src: "assets/gallery/pic06_familyboston.jpg", caption: "Family — Boston", alt: "Family photo in Boston" },
-    { src: "assets/gallery/pic01_kaitennis.jpg", caption: "Kai - Cobber Tennis", alt: "Kai playing Cobber tennis" },
-    { src: "assets/gallery/pic02_chief.jpg", caption: "Chief", alt: "Chief" },
-    { src: "assets/gallery/pic03_halegun.jpg", caption: "Hale", alt: "Hale" },
-    { src: "assets/gallery/pic04_susanerikhof.jpg", caption: "Susan & Erik - ND Tennis HOF", alt: "Susan and Erik at their Hall of Fame Plaque" },
-    { src: "assets/gallery/pic05_catsfranktessie.jpg", caption: "Frank & Tessie", alt: "Two cats lounging" },
-    { src: "assets/gallery/pic07_familyfenway.jpg", caption: "Family — Fenway", alt: "Family at Fenway Park" },
-    { src: "assets/gallery/pic08_familyfenway.jpg", caption: "Fenway - part 2", alt: "Family at Fenway Park (second photo)" },
-    { src: "assets/gallery/pic09_halekaifenway.jpg", caption: "Hale & Kai — Fenway on the Green Monster", alt: "Hale and Kai at Fenway Park" },
-    { src: "assets/gallery/pic11_floridacobbertennis.jpg", caption: "Florida Cobber tennis (sun edition)", alt: "Tennis in Florida" },
-    { src: "assets/gallery/pic12_halehunting.jpg", caption: "Hale - hunting mode", alt: "Hale hunting" },
-    { src: "assets/gallery/pic13_halenewhome.jpg", caption: "Hale's new home base", alt: "Hale at new home" },
-    { src: "assets/gallery/pic14_kaicobbertennisgameday.jpg", caption: "Kai - Cobber Tennis Game Day", alt: "Kai on tennis game day" },
-    { src: "assets/gallery/pic10_chief.jpg", caption: "Chief (again, because obviously)", alt: "Chief again" },
+    { thumb: "assets/gallery/thumbs/pic06_familyboston.jpg", full: "assets/gallery/full/pic06_familyboston.jpg", caption: "Family — Boston", alt: "Family photo in Boston" },
+    { thumb: "assets/gallery/thumbs/pic01_kaitennis.jpg", full: "assets/gallery/full/pic01_kaitennis.jpg", caption: "Kai - Cobber Tennis", alt: "Kai playing Cobber tennis" },
+    { thumb: "assets/gallery/thumbs/pic02_chief.jpg", full: "assets/gallery/full/pic02_chief.jpg", caption: "Chief", alt: "Chief" },
+    { thumb: "assets/gallery/thumbs/pic03_halegun.jpg", full: "assets/gallery/full/pic03_halegun.jpg", caption: "Hale", alt: "Hale" },
+    { thumb: "assets/gallery/thumbs/pic04_susanerikhof.jpg", full: "assets/gallery/full/pic04_susanerikhof.jpg", caption: "Susan & Erik - ND Tennis HOF", alt: "Susan and Erik at their Hall of Fame Plaque" },
+    { thumb: "assets/gallery/thumbs/pic05_catsfranktessie.jpg", full: "assets/gallery/full/pic05_catsfranktessie.jpg", caption: "Frank & Tessie", alt: "Two cats lounging" },
+    { thumb: "assets/gallery/thumbs/pic07_familyfenway.jpg", full: "assets/gallery/full/pic07_familyfenway.jpg", caption: "Family — Fenway", alt: "Family at Fenway Park" },
+    { thumb: "assets/gallery/thumbs/pic08_familyfenway.jpg", full: "assets/gallery/full/pic08_familyfenway.jpg", caption: "Fenway - part 2", alt: "Family at Fenway Park (second photo)" },
+    { thumb: "assets/gallery/thumbs/pic09_halekaifenway.jpg", full: "assets/gallery/full/pic09_halekaifenway.jpg", caption: "Hale & Kai — Fenway on the Green Monster", alt: "Hale and Kai at Fenway Park" },
+    { thumb: "assets/gallery/thumbs/pic11_floridacobbertennis.jpg", full: "assets/gallery/full/pic11_floridacobbertennis.jpg", caption: "Florida Cobber tennis (sun edition)", alt: "Tennis in Florida" },
+    { thumb: "assets/gallery/thumbs/pic12_halehunting.jpg", full: "assets/gallery/full/pic12_halehunting.jpg", caption: "Hale - hunting mode", alt: "Hale hunting" },
+    { thumb: "assets/gallery/thumbs/pic13_halenewhome.jpg", full: "assets/gallery/full/pic13_halenewhome.jpg", caption: "Hale's new home base", alt: "Hale at new home" },
+    { thumb: "assets/gallery/thumbs/pic14_kaicobbertennisgameday.jpg", full: "assets/gallery/full/pic14_kaicobbertennisgameday.jpg", caption: "Kai - Cobber Tennis Game Day", alt: "Kai on tennis game day" },
+    { thumb: "assets/gallery/thumbs/pic10_chief.jpg", full: "assets/gallery/full/pic10_chief.jpg", caption: "Chief (again, because obviously)", alt: "Chief again" },
   ];
 
   const grid = document.getElementById("galleryGrid");
@@ -45,7 +45,7 @@
 
   function renderLightbox() {
     const item = galleryItems[currentIndex];
-    lbImg.src = item.src;
+    lbImg.src = item.full;
     lbImg.alt = item.alt || "";
     lbCap.textContent = item.caption || "";
   }
@@ -62,7 +62,6 @@
     if (!lightbox) return;
     lightbox.hidden = true;
     document.body.style.overflow = "";
-    // NOTE: do NOT clear lbImg.src here — that’s one cause of “empty lightbox” weirdness.
   }
 
   function showNext(dir) {
@@ -73,7 +72,7 @@
   if (grid) {
     grid.innerHTML = galleryItems.map((item, i) => `
       <figure class="thumb" role="button" tabindex="0" data-idx="${i}" aria-label="Open photo ${i + 1}">
-        <img src="${item.src}" alt="${item.alt || ""}" loading="lazy" />
+        <img src="${item.thumb}" alt="${item.alt || ""}" loading="lazy" />
         <figcaption>${item.caption || ""}</figcaption>
       </figure>
     `).join("");
@@ -167,7 +166,6 @@
     requestAnimationFrame(stepSnow);
   }
 
-  // Disable snow gracefully if needed (NO early return!)
   if (!canvas || !ctx || prefersReducedMotion) {
     snowOn = false;
     if (toggleBtn) {
@@ -200,19 +198,15 @@
     const el = document.getElementById("i94map");
     if (!el || !window.L) return;
 
-    // Approx coords
     const bismarck = [46.8083, -100.7837];
     const jamestown = [46.9105, -98.7084];
     const valleyCity = [46.9233, -98.0032];
 
-    // “Scatter zone”-ish points (just for laughs)
     const mystery1 = [46.85, -100.10];
     const mystery2 = [46.88, -99.55];
     const mystery3 = [46.90, -99.05];
 
-    const map = L.map("i94map", {
-      scrollWheelZoom: false, // keeps page scrolling nice
-    });
+    const map = L.map("i94map", { scrollWheelZoom: false });
 
     L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
       maxZoom: 18,
@@ -230,24 +224,15 @@
       L.circleMarker(latlng, { ...iconOpts, fillColor }).addTo(map).bindPopup(label);
 
     mk(bismarck, "<b>Bismarck</b><br>Cards last seen behaving normally.", "#e9c46a");
-    mk(jamestown, "<b>Jamestown</b><br>Somewhere near here… the box went *hollow*.", "#c81d25");
+    mk(jamestown, "<b>Jamestown</b><br>Somewhere near here… the box went <em>hollow</em>.", "#c81d25");
     mk(valleyCity, "<b>Valley City</b><br>Home base. Waiting patiently. Mostly.", "#2a9d5b");
 
     mk(mystery1, "Possible scatter zone: “Box vibes questionable.”", "#c81d25");
     mk(mystery2, "Possible scatter zone: “Card confetti?”", "#c81d25");
     mk(mystery3, "Possible scatter zone: “UPS says: ¯\\\\_(ツ)_/¯ ”", "#c81d25");
 
-    // Simple lines (not exact road geometry, but tells the story)
-    const routeA = L.polyline([bismarck, jamestown], {
-      weight: 4,
-      opacity: 0.85
-    }).addTo(map);
-
-    const routeB = L.polyline([jamestown, valleyCity], {
-      weight: 4,
-      opacity: 0.55,
-      dashArray: "6 8"
-    }).addTo(map);
+    const routeA = L.polyline([bismarck, jamestown], { weight: 4, opacity: 0.85 }).addTo(map);
+    const routeB = L.polyline([jamestown, valleyCity], { weight: 4, opacity: 0.55, dashArray: "6 8" }).addTo(map);
 
     const group = L.featureGroup([routeA, routeB]);
     map.fitBounds(group.getBounds().pad(0.25));
