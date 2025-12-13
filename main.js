@@ -24,7 +24,7 @@
     { src: "assets/gallery/pic01_kaitennis.jpg", caption: "Kai - Cobber Tennis", alt: "Kai playing Cobber tennis" },
     { src: "assets/gallery/pic02_chief.jpg", caption: "Chief", alt: "Chief" },
     { src: "assets/gallery/pic03_halegun.jpg", caption: "Hale", alt: "Hale" },
-    { src: "assets/gallery/pic04_susanerikhof.jpg", caption: "Susan & Erik - ND Tennis HOF", alt: "Susan and Erik smiling" },
+    { src: "assets/gallery/pic04_susanerikhof.jpg", caption: "Susan & Erik - ND Tennis HOF", alt: "Susan and Erik at their Hall of Fame Plaque" },
     { src: "assets/gallery/pic05_catsfranktessie.jpg", caption: "Frank & Tessie", alt: "Two cats lounging" },
     { src: "assets/gallery/pic07_familyfenway.jpg", caption: "Family — Fenway", alt: "Family at Fenway Park" },
     { src: "assets/gallery/pic08_familyfenway.jpg", caption: "Fenway - part 2", alt: "Family at Fenway Park (second photo)" },
@@ -194,4 +194,63 @@
       });
     }
   }
+
+  // ===== Map (Leaflet / OSM) =====
+  (function initI94Map(){
+    const el = document.getElementById("i94map");
+    if (!el || !window.L) return;
+
+    // Approx coords
+    const bismarck = [46.8083, -100.7837];
+    const jamestown = [46.9105, -98.7084];
+    const valleyCity = [46.9233, -98.0032];
+
+    // “Scatter zone”-ish points (just for laughs)
+    const mystery1 = [46.85, -100.10];
+    const mystery2 = [46.88, -99.55];
+    const mystery3 = [46.90, -99.05];
+
+    const map = L.map("i94map", {
+      scrollWheelZoom: false, // keeps page scrolling nice
+    });
+
+    L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+      maxZoom: 18,
+      attribution: '&copy; OpenStreetMap contributors'
+    }).addTo(map);
+
+    const iconOpts = {
+      radius: 7,
+      weight: 2,
+      color: "rgba(255,255,255,.9)",
+      fillOpacity: 0.9
+    };
+
+    const mk = (latlng, label, fillColor) =>
+      L.circleMarker(latlng, { ...iconOpts, fillColor }).addTo(map).bindPopup(label);
+
+    mk(bismarck, "<b>Bismarck</b><br>Cards last seen behaving normally.", "#e9c46a");
+    mk(jamestown, "<b>Jamestown</b><br>Somewhere near here… the box went *hollow*.", "#c81d25");
+    mk(valleyCity, "<b>Valley City</b><br>Home base. Waiting patiently. Mostly.", "#2a9d5b");
+
+    mk(mystery1, "Possible scatter zone: “Box vibes questionable.”", "#c81d25");
+    mk(mystery2, "Possible scatter zone: “Card confetti?”", "#c81d25");
+    mk(mystery3, "Possible scatter zone: “UPS says: ¯\\\\_(ツ)_/¯ ”", "#c81d25");
+
+    // Simple lines (not exact road geometry, but tells the story)
+    const routeA = L.polyline([bismarck, jamestown], {
+      weight: 4,
+      opacity: 0.85
+    }).addTo(map);
+
+    const routeB = L.polyline([jamestown, valleyCity], {
+      weight: 4,
+      opacity: 0.55,
+      dashArray: "6 8"
+    }).addTo(map);
+
+    const group = L.featureGroup([routeA, routeB]);
+    map.fitBounds(group.getBounds().pad(0.25));
+  })();
+
 })();

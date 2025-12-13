@@ -8,6 +8,7 @@
   <title>Kringlie Xmas 2025</title>
   <meta name="description" content="A Christmas letter, delivered digitally… because the physical one went on an interstate adventure." />
 
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
   <link rel="stylesheet" href="styles.css" />
 </head>
 
@@ -86,8 +87,8 @@
           <p class="stanza">
             Then Hale burst in next with a “grain” of good cheer,<br>
             Arthur Companies' Pillsbury plant keeps him busy all year.<br>
-            Grain merchandizer life: it's fast, it's intense—<br>
-            He can talk markets and yeilds like it's Christmas in French.<br>
+            Grain merchandiser life: it's fast, it's intense—<br>
+            He can talk markets and yields like it's Christmas in French.<br>
             But he found time for pheasants out west on the plains,<br>
             And came home with stories (and frostcicles on his face).<br>
             And plot twist of 2025—hold onto your hat—<br>
@@ -205,24 +206,17 @@
           </ul>
         </div>
 
-        <div class="mapbox" role="img" aria-label="Decorative route line between Bismarck and Jamestown">
-          <div class="route">
-            <span class="dot"></span>
-            <span class="line"></span>
-            <span class="dot"></span>
-          </div>
-          <div class="route-labels">
-            <div><strong>Bismarck</strong><br><span class="muted">Last known civilization</span></div>
-            <div class="right"><strong>Jamestown</strong><br><span class="muted">Land of “maybe?”</span></div>
-          </div>
-          <p class="muted small">(We can embed a real map later — this is the “construction paper” version.)</p>
+        <div class="mapbox">
+          <div id="i94map" aria-label="Map of I-94 between Bismarck, Jamestown, and Valley City"></div>
+          <p class="muted small">Alleged scatter zone somewhere between Bismarck and Jamestown. (UPS denies everything.)</p>
         </div>
+
       </div>
     </section>
   </main>
 
   <footer id="footer" class="wrap footer">
-    <p>© <span data-year></span> The Kringlies • Built with cheer • Hosted somewhere far from conveyor belts</p>
+    <p>© <span data-year></span> The Kringlies • Built with Holiday Cheer • Hosted somewhere far from Shutterfly and UPS</p>
   </footer>
 
   <!-- Lightbox (IMPORTANT: keep this as a direct child of body) -->
@@ -242,6 +236,7 @@
     </div>
   </div>
 
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
   <script src="main.js"></script>
 </body>
 </html>
