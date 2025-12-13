@@ -198,6 +198,27 @@ h1{
   color: var(--red);
 }
 
+.letter-paper{
+  padding: 0; /* let the scroll box handle padding */
+}
+
+.letter-scroll{
+  padding: 18px;
+  max-height: 520px;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.stanza{
+  margin: 0 0 14px;
+  line-height: 1.6;
+}
+
+.stanza.signature{
+  margin-top: 18px;
+  font-weight: 700;
+}
+
 .note{
   margin-top: 12px;
   padding: 12px;
