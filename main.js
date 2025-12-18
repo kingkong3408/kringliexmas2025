@@ -33,6 +33,7 @@
     { thumb: "assets/gallery/thumbs/pic12_halehunting.jpg", full: "assets/gallery/full/pic12_halehunting.jpg", caption: "Hale - hunting mode", alt: "Hale hunting" },
     { thumb: "assets/gallery/thumbs/pic13_halenewhome.jpg", full: "assets/gallery/full/pic13_halenewhome.jpg", caption: "Hale's new home base", alt: "Hale at new home" },
     { thumb: "assets/gallery/thumbs/pic14_kaicobbertennisgameday.jpg", full: "assets/gallery/full/pic14_kaicobbertennisgameday.jpg", caption: "Kai - Cobber Tennis Game Day", alt: "Kai on tennis game day" },
+    { thumb: "assets/gallery/thumbs/pic15_gmoney.jpg", full: "assets/gallery/full/pic15_gmoney.jpg", caption: "Son Garrett", alt: "Son Garrett" },
     { thumb: "assets/gallery/thumbs/pic10_chief.jpg", full: "assets/gallery/full/pic10_chief.jpg", caption: "Chief (again, because obviously)", alt: "Chief again" },
   ];
 
